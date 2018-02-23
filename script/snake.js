@@ -6,27 +6,32 @@ const DIR = {
 }
 
 class Snake {
-    constructor() {
-        this.body = new Array()
-        this.target = new Fruit()
+    constructor(x, y) {
+        this.body = [[x, y]]
         this.dir = DIR.right
+
         this.xMax = null
         this.yMax = null
+        this.target = null
     }
 
-    setup(x, y) {
-        this.body.push([x, y])
-        this.changeDir('right')
+    limitBoder(xMax, yMax) {
+        this.xMax = xMax
+        this.yMax = yMax
     }
 
-    reset() {
-        this.body = new Array()
-        this.changeTarget()
+    initTarget() {
+        let [x, y] = this.body[0]
+        this.target = new Fruit(
+            (x + this.xMax) / 2,
+            (y + this.yMax) / 2
+        )
     }
 
-    limit(x, y) {
-        this.xMax = x
-        this.yMax = y
+    reset(x, y) {
+        this.body = [[x, y]]
+        this.dir = DIR.right
+        this.initTarget()
     }
 
     hit(x, y) {
