@@ -4,14 +4,12 @@ class Game {
         this.runing = false
         this.actions = {}
 
-        this.snake = new Snake()
-        this.dungeon = new Dungeon()
-        this.setup()
-    }
+        this.dungeon = new Dungeon(450, 450, 10, '#dungeon')
 
-    setup() {
-        this.snake.setup(7, 7)
-        this.snake.limit(this.dungeon.xMax, this.dungeon.yMax)
+        this.snake = new Snake(7, 7)
+        this.snake.limitBoder(this.dungeon.xMax, this.dungeon.yMax)
+        this.snake.initTarget()
+
         this.draw()
     }
 
@@ -42,13 +40,12 @@ class Game {
     start() {
         if (!this.runing) {
             this.runing = true
-            this.setup()
             this.interval = setInterval(() => {
                 try {
                     this.update()
                     this.draw()
                 } catch(e) { // 死亡
-                    this.snake = new Snake()
+                    this.snake.reset(7, 7)
                     clearInterval(this.interval)
                     this.runing = false
                 }
