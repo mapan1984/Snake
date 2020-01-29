@@ -10,3 +10,5 @@ class Fruit {
         return this
     }
 }
+
+export default Fruit

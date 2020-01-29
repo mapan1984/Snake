@@ -45,3 +45,5 @@ class Dungeon {
         this.context.fill()
     }
 }
+
+export default Dungeon

@@ -1,3 +1,6 @@
+import Dungeon from './dungeon.js'
+import Snake from './snake.js'
+
 class Game {
     constructor() {
         this.fps = 10
@@ -21,7 +24,6 @@ class Game {
     // 开始监听按键，并处理与之对应的事件
     listen() {
         window.addEventListener('keydown', (event) => {
-            let key = event.key
             let action = this.actions[event.key]
             action && action()
         })
@@ -53,3 +55,5 @@ class Game {
         }
     }
 }
+
+export default Game

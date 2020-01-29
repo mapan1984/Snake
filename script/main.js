@@ -1,3 +1,5 @@
+import Game from './game.js'
+
 (function main() {
     let game = new Game()
 

@@ -1,3 +1,5 @@
+import Fruit from './fruit.js'
+
 const DIR = {
     up: [0, -1],
     down: [0, 1],
@@ -81,3 +83,5 @@ class Snake {
         this.moveTo(xHead, yHead)
     }
 }
+
+export default Snake
